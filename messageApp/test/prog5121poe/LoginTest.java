@@ -59,7 +59,7 @@ public void testIncorrectCellphone() {
 public void testLoginSuccessful() {
     Login user = new Login("kyl_1", "Ch&&sec@ke99!", "+27838968976", "Kyle", "Smith");
 
-    boolean result = user.loginUser("kyl_1","Ch&&sec@ke99!"); 
+    boolean result = user.loginUser("kyl_1","Ch&&sec@ke99!"); //Tests if the user has successfully logged in with correct username and password
     assertTrue(result);
 }
 
@@ -67,7 +67,7 @@ public void testLoginSuccessful() {
 public void testLoginFailed() {
     Login user = new Login("kyle!!!!!!!", "Password1!", "+27838968976", "Kyle", "Smith");
 
-    boolean result = user.loginUser("wrongUsername", "wrongPassword");
+    boolean result = user.loginUser("wrongUsername", "wrongPassword"); // Tests if the user has failed to log in using username and password
     assertFalse(result);
 }
 

@@ -7,7 +7,7 @@ package prog5121poe;
 import java.util.Scanner; 
 
 public class MessageApp {
-
+  
     
     public static void main(String[] args) {
         //scanner
@@ -64,3 +64,4 @@ public class MessageApp {
         input.close();
     }         
 }
+ 
