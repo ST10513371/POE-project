@@ -106,3 +106,4 @@ public void testcellPhoneNumberIncorrecctlyFormatted(){
     assertFalse(user.checkCellPhoneNumber());
 }
 }
+ 

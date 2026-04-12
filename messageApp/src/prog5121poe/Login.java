@@ -1,4 +1,4 @@
-
+ 
 package prog5121poe;
 
 
@@ -21,7 +21,7 @@ public class Login {
    
     //Checks if Username is correctly inputed
    public boolean checkUsername() {
-        if (username.contains("_") && username.length() <= 5) {
+        if (username.contains("_") && username.length() <= 5) { // method checks if username contains an underscore and is less than or equal to 5
             return true;
         } else {
             return false;
@@ -84,6 +84,6 @@ public class Login {
             return "Username or password incorrect, please try again.";
         }
     }
+    
+}   
    
-} 
- 

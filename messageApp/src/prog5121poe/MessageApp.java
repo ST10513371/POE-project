@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
- */
+ 
 package prog5121poe;
 
 import java.util.Scanner; 
@@ -41,15 +38,16 @@ public class MessageApp {
         System.out.print("Enter cellphonenumber (+27...): ");
         String cpn = input.nextLine();
         
-        
+         //The object calls the login class in order to prompt the user for input
         Login user= new Login(u, p, cpn ,fn ,ln);
         
         //Registration message
+        //the object calls the register user method
         String registrationMessage = user.registerUser();
         System.out.println(registrationMessage);
         
     
-        System.out.println("\n LOGIN");
+        System.out.println(" LOGIN");
 
         System.out.print("Enter username: ");
         String username = input.nextLine();
@@ -63,5 +61,5 @@ public class MessageApp {
          
         input.close();
     }         
-}
- 
+} 
+        
