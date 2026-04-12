@@ -82,7 +82,7 @@ public class Login {
      //Returns the Login message 
     public String returnLoginStatus(boolean success) {
         if (success) {
-            return "Welcome " + this.firstname + " " + this.lastname + ", it is great to see you.";//This messaage will display if the user inputs the wrong username and password
+            return "Welcome " + this.firstname + " " + this.lastname + ", it is great to see you.";//This messaage will display if the user inputs the correct username and password
         } else {
             return "Username or password incorrect, please try again.";//This error messaage will display if the user inputs the wrong username and password
         }
