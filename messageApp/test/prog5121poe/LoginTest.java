@@ -11,7 +11,7 @@ public class LoginTest {
      public void testcorrectUsername() {
     Login user = new Login("kyl_1", "Ch&&sec@ke99!", "+27838968976", "kyle", "Smith");
      boolean result = user.checkUsername(); //Tests if the username is correct
-     assertTrue(result);    //I used assert True/False becuase assertEquals only returns String methods not boolean
+     assertTrue(result);                    //I used assert True/False becuase assertEquals only returns String methods not boolean
 }
 
 @Test
@@ -106,4 +106,4 @@ public void testcellPhoneNumberIncorrecctlyFormatted(){
     assertFalse(user.checkCellPhoneNumber());
 }
 }
- 
+  

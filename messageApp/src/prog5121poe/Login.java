@@ -1,4 +1,4 @@
- 
+      
 package prog5121poe;
 
 
@@ -10,7 +10,7 @@ public class Login {
    private String  password;
    private String cellphoneNumber;
 
-    
+    //constructor
     public Login(String u , String p , String cpn ,String fn ,String ln) {
         this.firstname = fn;
         this.lastname = ln;
@@ -53,6 +53,8 @@ public class Login {
 
     
     // Registering User
+    //registeruser method checks if the username ,password and cellphone number methods have been passed and registers the user and then move on
+    //and if not the following error messages will display
        public String registerUser() {
 
         if (!checkUsername()) {
@@ -76,14 +78,14 @@ public class Login {
             
     }
     
-     //Returns the Login message
+     //Returns the Login message 
     public String returnLoginStatus(boolean success) {
         if (success) {
-            return "Welcome " + this.firstname + " " + this.lastname + ", it is great to see you.";
+            return "Welcome " + this.firstname + " " + this.lastname + ", it is great to see you.";//This messaage will display if the user inputs the wrong username and password
         } else {
-            return "Username or password incorrect, please try again.";
+            return "Username or password incorrect, please try again.";//This error messaage will display if the user inputs the wrong username and password
         }
     }
     
 }   
-   
+        
