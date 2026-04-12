@@ -38,7 +38,7 @@ public class MessageApp {
         System.out.print("Enter cellphonenumber (+27...): ");
         String cpn = input.nextLine();
         
-         //The object calls the login class in order to prompt the user for input
+         //I used the object to initialize the values in the the constructor inside the login class
         Login user= new Login(u, p, cpn ,fn ,ln);
         
         //Registration message
