@@ -1,4 +1,4 @@
-  
+   
 package prog5121poe;
 
 import java.util.Scanner; 
@@ -47,7 +47,7 @@ public class MessageApp {
         System.out.println(registrationMessage);
         
     
-        System.out.println(" LOGIN");
+        System.out.println("\n LOGIN");
         
         //promts the user for the username they used
         System.out.print("Enter username: ");
@@ -57,10 +57,10 @@ public class MessageApp {
         System.out.print("Enter password: ");
         String password = input.nextLine();
 
-        boolean result = user.loginUser(username, password);
-        System.out.println(user.returnLoginStatus(result));
+        boolean result = user.loginUser(username, password);//Compares entered username & password With the ones stored
+        System.out.println(user.returnLoginStatus(result)); // displays out the welcome message
          
         input.close();
     }         
 } 
-         
+          
