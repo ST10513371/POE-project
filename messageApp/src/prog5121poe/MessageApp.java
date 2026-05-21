@@ -59,8 +59,115 @@ public class MessageApp {
 
         boolean result = user.loginUser(username, password);//Compares entered username & password With the ones stored
         System.out.println(user.returnLoginStatus(result)); // displays out the welcome message
-         
-        input.close();
-    }         
-} 
+        
+    
+        //POE Part 2
+        // Welcome message
+        System.out.println("\nWelcome to QuickChat");
+
+        // Asks if user logged in
+        boolean loggedIn = true;
+
+        if (loggedIn == true) {
+
+            System.out.print("How many messages would you like to send? :");
+            int numMessages = input.nextInt();
+            input.nextLine();
+
+            // ARRAY OF OBJECTS
+            QuickChat[] messages = new QuickChat[numMessages];
+
+            int choice = 0;
+            int count = 0;
+
+            while (choice != 3) {
+                System.out.println("\nMENU");
+                System.out.println("1. Send Messages");
+                System.out.println("2. Show recently sent messages");
+                System.out.println("3. Quit");
+
+                System.out.print("Choose option: ");
+                choice = input.nextInt();
+                input.nextLine();
+
+                // OPTION 1
+                if (choice == 1){
+                    if (count < numMessages) {
+                        System.out.print("Enter Message ID: ");
+                        String id = input.nextLine();
+
+                        System.out.print("Enter recipient number: ");
+                        String recipient = input.nextLine();
+
+                        System.out.print("Enter message: ");
+                        String text = input.nextLine();
+                        
+                    // Create object
+                        QuickChat msg = new QuickChat(id, recipient, text);
+
+                        // Store in array
+                        messages[count] = msg;
+
+                        count++;
+                          
+                        
+                        // Check ID
+                        if (msg.checkmessageID()) {
+                            System.out.println("Message ID correctly formatted.");
+                        } else {
+                            System.out.println("Message ID incorrectly formatted.");
+                        }
+
+                        // Recipient result
+                        System.out.println(msg.checkRecipientCell());
+
+                        // Check message length
+                        if (msg.checkMessageLength()) {
+                            System.out.println("Message sent.");
+                        } else {
+                            System.out.println("Please enter a message of less than 250 characters.");
+                        }
+
+                        // Message hash
+                        System.out.println("Message Hash: " + msg.createMessageHash());
+
+                        // Send options
+                        System.out.println("\nChoose option:");
+                        System.out.println("1. Send Message");
+                        System.out.println("2. Store Message");
+                        System.out.println("3. Discard Message");
+
+                        int sendChoice = input.nextInt();
+                        input.nextLine();
+                    
+                        // Display result
+                        System.out.println(msg.sentmasseges(sendChoice));
+                    
+                        // Print full details
+                        System.out.println("\nFULL MESSAGE DETAILS");
+                        System.out.println(msg.printMessages());
+                    }
+
+                    else {
+                        System.out.println("You reached the message limit.");
+                    }
+                }                
+                 // OPTION 2
+            else if (choice == 2) {
+                System.out.println("Coming Soon.");
+            }
+                
+                // OPTION 3
+            else if (choice == 3) {
+                System.out.println("Total messages sent: "+ QuickChat.returnTotalMessages());
+                System.out.println("Goodbye!");
+            }
+            else {
+
+                System.out.println("Invalid option.");
+            }
+            }  
+        }      
+    }
+}
           
