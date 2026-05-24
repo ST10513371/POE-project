@@ -77,5 +77,40 @@ public class QuickChatTEST {
 
         assertNotNull(hash);
     }
+// Tests the Sent the messages.
+    @Test
+    public void testSendMessage() {
+        QuickChat msg = new QuickChat("+27123456789", "Hello");
+        
+        String expected = "message sent.";
 
+        String actual =  msg.sentmessages(1);
+        
+        assertEquals(expected, actual);
+    }
+
+    // Tests the Stored the messages.
+    @Test
+    public void testStoreMessage() {
+        QuickChat msg = new QuickChat("+27123456789", "Hello");
+        
+        String expected = "Message successfully stored.";
+        
+        String actual = msg.sentmessages(2);
+        
+        assertEquals(expected, actual);
+    }
+
+    
+    // Tests the Discarded the messages.
+    @Test
+    public void testDiscardMessage() {
+        QuickChat msg = new QuickChat("+27123456789", "Hello");
+        
+        String expected = "Press 0 to delete the message.";
+        
+        String actual = msg.sentmessages(3);
+        
+        assertEquals(expected, actual);
+    }
 }
