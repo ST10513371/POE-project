@@ -12,10 +12,9 @@ public class QuickChat {
     // Static variable for total messages
     private static int totalMessages = 0 ;
    
-    
-    
-    public QuickChat(String messageID, String recipient, String messageText) {
-        this.messageID = messageID;
+      
+    public QuickChat( String recipient, String messageText) {
+        this.messageID = generateMessageID();
         this.recipient = recipient;
         this.messageText = messageText;
         this.messageHash = messageHash;
@@ -38,68 +37,78 @@ public class QuickChat {
         return messageHash;
     }
     
-       // Generate random 10 digit message ID
+       //Generate 10 random digit for the message ID
     public String generateMessageID() {
 
         Random random = new Random();
-
+        
         long number = 1000000000L +
+                
                 (long)(random.nextDouble() * 9000000000L);
-
+        
         return String.valueOf(number);
     }
-    public boolean checkmessageID(){
-        if (messageID.length()<= 10){
-            return true;
-        }else{
-            return false;
-        }
-    }
     
-    //Check recipient number
-    public boolean checkRecipientCell() {
+    //Check recipient number                                                     
+    public String checkRecipientCell() {
         if (recipient.startsWith("+27") && recipient.length() <= 13) {
-            return true;
+            
+            return "Cell phone number successfully captured.";
+            
         } else {
-            return false;
+            
+            return "Cell phone number is incorrectly formatted or does not contain an international code. Please correct the number and try again.";
         }
     }
     
-    // check message length
-    public boolean checkMessageLength() {
-
-        if (messageText.length() <= 250) {
-            return true;
-        } else {
-            return false;
+    public String checkmessageID(){
+        if (messageID.length()<= 10){
+            return "Message ID correctly formatted.";
+        }else{
+            return "Message ID incorrectly formatted.";
         }
-    }
-
-     // Create message hash
-    public String createMessageHash() {
-
+    }    
+        // Create message hash
+        public String createMessageHash(){
         String firstTwo = messageID.substring(0, 2);
-
+        
         String[] words = messageText.split(" ");
-
+        
         String firstWord = words[0];
         String lastWord = words[words.length - 1];
-
-        messageHash = firstTwo + ":" + totalMessages + ":" +
+        
+        messageHash = firstTwo + ":" + totalMessages+ ":" +
                 firstWord + lastWord;
-
+        
         return messageHash.toUpperCase();
     }
     
-    public String sentmasseges( int option){
+    // check message length
+        public String checkMessageLength() {
+
+        if (messageText.length() <= 250) {
+
+        return "Message ready to send.";
+
+        } else {
+
+        int extraCharacters = messageText.length() - 250;
+
+        return "Message exceeds 250 characters by "+ extraCharacters + ", please reduce the size.";
+        //This methods checks if the message exceed 250 characters and if it exceeds 250 characters it will check by how many
+        //characters the message exceeds.
+    }
+}
+    
+    public String sentmessages( int option){
         if(option == 1){
-            return "message sent .";
+            return "message sent.";
         }
         else if(option == 2){
-            return "coming soon";
+            return "Message successfully stored.";
         }
         else if(option == 3){
-                return "Message discarded.";
+                return "Press 0 to delete the message.";
             }
         else{
             return "Invalid option";
@@ -108,20 +117,14 @@ public class QuickChat {
         
         // Print message
      public String printMessages(){
-
         return "Message ID: " + messageID +
                 "\nMessage Hash: " + createMessageHash() +
                 "\nRecipient: " + recipient +
                 "\nMessage: " + messageText;
     }
-    
-     // Return total messages
+        // Return total messages
     public static int returnTotalMessages() {
-        return totalMessages;
-        
+        return totalMessages;     
     }
-
-    
-    
 }
      
