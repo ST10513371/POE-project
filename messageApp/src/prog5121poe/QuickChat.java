@@ -135,8 +135,11 @@ public class QuickChat {
         return totalMessages;     
     }
     
+    //This method stores the messages in a JSON file.
+    //Jackson JSON Java Library. Available at:
+    // https://mvnrepository.com/artifact/org.json/json
+     //Accessed on 24 march 2026
     public void storeMessageJSON() {
-
     try {
         // Creates ObjectMapper
         ObjectMapper mapper = new ObjectMapper();
@@ -148,8 +151,7 @@ public class QuickChat {
         //I made this part a comment beacause the message will print twice as the one on the sentmessages method "option 2"
         //System.out.println("Message successfully stored.");       
     } catch (IOException e) {
-
-        System.out.println("Error storing messages.");
+        System.out.println("Error!! storing messages.");
     }
 }
 }
