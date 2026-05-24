@@ -61,5 +61,21 @@ public class QuickChatTEST {
 
     assertEquals(expected, actual);
 }
-  
+  //Tests the messageID Created.
+    @Test
+     public void testMessageIDCreated() {
+        QuickChat msg =  new QuickChat("+27123456789", "Hello");
+        assertEquals( "Message ID correctly formatted.", msg.checkmessageID());
+    }  
+    
+    // Tests the messageHash created.
+    @Test
+    public void testMessageHashCreated() {
+        QuickChat msg = new QuickChat("+27123456789", "Hi There");
+        
+        String hash = msg.createMessageHash();
+
+        assertNotNull(hash);
+    }
+
 }
