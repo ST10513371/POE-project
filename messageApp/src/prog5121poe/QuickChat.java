@@ -2,6 +2,10 @@
 package prog5121poe;
 
 import java.util.Random;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import java.io.File;
+import java.io.IOException;
+import java.util.Arrays;
 
 
 public class QuickChat {
@@ -36,6 +40,8 @@ public class QuickChat {
     public String getMessageHash() {
         return messageHash;
     }
+    
+    
     
        //Generate 10 random digit for the message ID
     public String generateMessageID() {
@@ -105,6 +111,8 @@ public class QuickChat {
             return "message sent.";
         }
         else if(option == 2){
+            
+        storeMessageJSON();
             return "Message successfully stored.";
         }
         else if(option == 3){
@@ -126,5 +134,23 @@ public class QuickChat {
     public static int returnTotalMessages() {
         return totalMessages;     
     }
+    
+    public void storeMessageJSON() {
+
+    try {
+        // Creates ObjectMapper
+        ObjectMapper mapper = new ObjectMapper();
+        // Creates JSON file
+        File file = new File("messages.json");
+        // Stores this object into JSON file
+        mapper.writerWithDefaultPrettyPrinter().writeValue(file, this);
+
+        //I made this part a comment beacause the message will print twice as the one on the sentmessages method "option 2"
+        //System.out.println("Message successfully stored.");       
+    } catch (IOException e) {
+
+        System.out.println("Error storing messages.");
+    }
+}
 }
      

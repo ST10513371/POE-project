@@ -122,7 +122,8 @@ public class MessageApp {
                         System.out.println(msg.checkMessageLength());                         
 
                         //Outputs the generated messageHash and also calling the createMessageHash Method
-            // The correct first 2 numbers FROM the messageID in the messageHash will show after SENDING OR STORING the messages!!
+                        
+                        // The correct first 2 numbers FROM the messageID in the messageHash will show after SENDING OR STORING the messages!!
                         System.out.println("Message Hash: " + msg.createMessageHash());
 
                         // Send options
