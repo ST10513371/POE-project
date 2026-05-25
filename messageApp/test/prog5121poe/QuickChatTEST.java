@@ -11,7 +11,7 @@ public class QuickChatTEST {
     @Test
     public void testCheckMessageLengthSuccess() {
 
-    QuickChat msg =new QuickChat("+27831234567","Hello Tumelo");
+    QuickChat msg =new QuickChat("+27831234567","Hello");
 
     String expected = "Message ready to send.";
 

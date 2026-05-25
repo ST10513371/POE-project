@@ -43,7 +43,7 @@ public class QuickChat {
     
     
     
-       //Generate 10 random digit for the message ID
+       //This method generates 10 random digits for the message ID
     public String generateMessageID() {
 
         Random random = new Random();
@@ -55,7 +55,7 @@ public class QuickChat {
         return String.valueOf(number);
     }
     
-    //Check recipient number                                                     
+    //This method Checks recipient number                                                     
     public String checkRecipientCell() {
         if (recipient.startsWith("+27") && recipient.length() <= 13) {
             
@@ -66,7 +66,7 @@ public class QuickChat {
             return "Cell phone number is incorrectly formatted or does not contain an international code. Please correct the number and try again.";
         }
     }
-    
+    //This method checks if the messageID is correct and gives the return messages
     public String checkmessageID(){
         if (messageID.length()<= 10){
             return "Message ID correctly formatted.";
@@ -74,8 +74,8 @@ public class QuickChat {
             return "Message ID incorrectly formatted.";
         }
     }    
-        // Create message hash
-        public String createMessageHash(){
+        //This method Creates the message hash
+     public String createMessageHash(){
         String firstTwo = messageID.substring(0, 2);
         
         String[] words = messageText.split(" ");
@@ -89,7 +89,7 @@ public class QuickChat {
         return messageHash.toUpperCase();
     }
     
-    // check message length
+    //This method checks the message length
         public String checkMessageLength() {
 
         if (messageText.length() <= 250) {
@@ -105,7 +105,7 @@ public class QuickChat {
         //characters the message exceeds.
     }
 }
-    
+    //This method shows the return messages for if where the user choose to send , store or discard the messages
     public String sentmessages( int option){
         if(option == 1){
             return "message sent.";
@@ -123,7 +123,7 @@ public class QuickChat {
         }
     }
         
-        // Print message
+        // This method Prints the messages
      public String printMessages(){
         return "Message ID: " + messageID +
                 "\nMessage Hash: " + createMessageHash() +
