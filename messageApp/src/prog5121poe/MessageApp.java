@@ -7,6 +7,7 @@ public class MessageApp {
   
     
     public static void main(String[] args) {
+        //Part 1
         //scanner
         Scanner input = new Scanner(System.in);
         
@@ -61,7 +62,7 @@ public class MessageApp {
         System.out.println(user.returnLoginStatus(result)); // displays out the welcome message
         
     
-        //POE Part 2
+        //POE PART 2
         // Welcome message
         System.out.println("\nWelcome to QuickChat");
 
@@ -85,6 +86,9 @@ public class MessageApp {
                 System.out.println("1. Send Messages");
                 System.out.println("2. Show recently sent messages");
                 System.out.println("3. Quit");
+                System.out.println("4. Message reports");
+                
+                
 
                 System.out.print("Choose option: "); 
                 choice = input.nextInt();
@@ -123,7 +127,7 @@ public class MessageApp {
 
                         //Outputs the generated messageHash and also calling the createMessageHash Method
                         
-                        // The correct first 2 numbers FROM the messageID in the messageHash will show after SENDING OR STORING the messages!!
+                        // The correct first 2 numbers FROM the messageID in the messageHash will show after SENDING,STORING AND DISCARDING the messages!!
                         System.out.println("Message Hash: " + msg.createMessageHash());
 
                         // Send options
@@ -141,7 +145,7 @@ public class MessageApp {
                         // Print full details
                         System.out.println("\nFULL MESSAGE DETAILS");
                         System.out.println(msg.printMessages());
-                   } else {
+                   } else { 
                         System.out.println("You reached the message limit.");
                     }
                 }                
@@ -154,12 +158,68 @@ public class MessageApp {
                          else if (choice == 3) {
                         System.out.println("Total messages sent: "+ QuickChat.returnTotalMessages());
                          System.out.println("Goodbye!");
+                         }
+                         
+                         //PART 3
+                          // OPTION 4 ( Stored messages)
+                         else if(choice == 4){
+                            
+                        System.out.println("\nREPORT MENU");
+                        System.out.println("1. Sender & Recipient");
+                        System.out.println("2. Longest Message");
+                        System.out.println("3. Search by Message ID");
+                        System.out.println("4. Search by Recipient");
+                        System.out.println("5. Delete by Hash");
+                        System.out.println("6. Full Report");
+
+                        int reportChoice = input.nextInt();
+                        input.nextLine();
+
+                        if(reportChoice == 1){
+                            MessageStorage.displaySenderAndRecipient();
+                        }
+
+                        else if(reportChoice == 2){
+                            MessageStorage.displayLongestMessage();
+                        }
+
+                        else if(reportChoice == 3){
+
+                            System.out.print("Enter Message ID: ");
+                            String id = input.nextLine();
+
+                            MessageStorage.searchByMessageID(id);
+                        }
+
+                        else if(reportChoice == 4){
+
+                            System.out.print("Enter recipient: ");
+                            String rec = input.nextLine();
+
+                            MessageStorage.searchByRecipient(rec);
+                        }
+
+                        else if(reportChoice == 5){
+
+                            System.out.print("Enter message hash: ");
+                            String hash = input.nextLine();
+
+                            MessageStorage.deleteByHash(hash);
+                        }
+
+                        else if(reportChoice == 6){
+                            MessageStorage.displayReport();
+                        }
+
+                        else {
+                            System.out.println("Invalid report option.");
+                        }
                         }
                          else {
                         System.out.println("Invalid option.");
                 }
             }  
-        }      
+        }          
     }
  }
           

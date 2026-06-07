@@ -108,14 +108,25 @@ public class QuickChat {
     //This method shows the return messages for if where the user choose to send , store or discard the messages
     public String sentmessages( int option){
         if(option == 1){
+            //Part 3
+             MessageStorage.sentMessages.add(this);
+             MessageStorage.messageHashes.add(createMessageHash());
+             MessageStorage.messageIDs.add(messageID);
             return "message sent.";
         }
         else if(option == 2){
+            //Part 3
+            MessageStorage.storedMessages.add(this);
+            MessageStorage.messageHashes.add(createMessageHash());
+            MessageStorage.messageIDs.add(messageID);
             
         storeMessageJSON();
             return "Message successfully stored.";
         }
         else if(option == 3){
+            //Part 3
+            MessageStorage.disregardedMessages.add(this);
+            
                 return "Press 0 to delete the message.";
             }
         else{
@@ -146,7 +157,7 @@ public class QuickChat {
         // Creates JSON file
         File file = new File("messages.json");
         // Stores this object into JSON file
-        mapper.writerWithDefaultPrettyPrinter().writeValue(file, this);
+        mapper.writerWithDefaultPrettyPrinter().writeValue(file,MessageStorage.storedMessages);
 
         //I made this part a comment beacause the message will print twice as the one on the sentmessages method "option 2"
         //System.out.println("Message successfully stored.");       
