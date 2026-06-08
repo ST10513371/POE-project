@@ -151,9 +151,14 @@ public class MessageApp {
                 }                
                         // OPTION 2
                         else if (choice == 2) {
-                        System.out.println("Coming Soon.");
+                           // =========================
+                           // SHOW RECENTLY SENT MESSAGES
+                           // =========================
+                            System.out.println("\n === RECENTLY SENT MESSAGES ===");
+                            System.out.println(MessageStorage.getRecentMessages());
                         }
-                
+                        
+          
                         // OPTION 3
                          else if (choice == 3) {
                         System.out.println("Total messages sent: "+ QuickChat.returnTotalMessages());
@@ -172,6 +177,7 @@ public class MessageApp {
                         System.out.println("5. Delete by Hash");
                         System.out.println("6. Full Report");
 
+                        System.out.print("Choose Report option: "); 
                         int reportChoice = input.nextInt();
                         input.nextLine();
 
@@ -196,7 +202,7 @@ public class MessageApp {
                             System.out.print("Enter recipient: ");
                             String rec = input.nextLine();
 
-                            MessageStorage.searchByRecipient(rec);
+                            System.out.print(MessageStorage.searchByRecipient(rec));
                         }
 
                         else if(reportChoice == 5){
@@ -204,11 +210,11 @@ public class MessageApp {
                             System.out.print("Enter message hash: ");
                             String hash = input.nextLine();
 
-                            MessageStorage.deleteByHash(hash);
+                            System.out.print(MessageStorage.deleteByHash(hash));
                         }
 
                         else if(reportChoice == 6){
-                            MessageStorage.displayReport();
+                           System.out.print( MessageStorage.displayReport());
                         }
 
                         else {
@@ -221,5 +227,5 @@ public class MessageApp {
             }  
         }          
     }
- }
+}
           

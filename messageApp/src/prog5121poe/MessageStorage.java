@@ -18,23 +18,40 @@ public class MessageStorage {
     
     // 1. Display the Sender And Recipient from the Stored messages
     public static void displaySenderAndRecipient(){
-
+        
     for(QuickChat msg : MessageStorage.storedMessages){
 
         System.out.println("Sender: User");
         System.out.println("Recipient: " + msg.getRecipient());
         System.out.println("Message: " + msg.getMessageText());
     }
-}
     
- // 2. Display the longest message
+}
+    //2. returns the longest stored message
+    public static QuickChat getLongestMessage() {
+
+        if (storedMessages.isEmpty()) {
+            return null;
+        }
+        QuickChat longest = storedMessages.get(0);
+
+        for (QuickChat msg : storedMessages) {
+
+            if (msg.getMessageText().length() >
+                    longest.getMessageText().length()) {
+                longest = msg;
+            }
+        }
+        return longest;
+    }
+    
+ // Display the longest message
     public static void displayLongestMessage() {
 
         if (MessageStorage.storedMessages.isEmpty()) {
             System.out.println("No messages available.");
             return;
         }
-
         QuickChat longest = MessageStorage.storedMessages.get(0);
 
         for (QuickChat msg : MessageStorage.storedMessages) {
@@ -45,70 +62,87 @@ public class MessageStorage {
                 longest = msg;
             }
         }
-
-        System.out.println("\n--- LONGEST MESSAGE ---");
+        System.out.println("\n === LONGEST MESSAGE ===");
         System.out.println(longest.getMessageText());
     }
     
+    
+
      // 3. Search by MessageID
     public static void searchByMessageID(String id) {
 
         for (QuickChat msg : MessageStorage.storedMessages) {
-
             if (msg.getMessageID().equals(id)) {
 
-                System.out.println("\n--- MESSAGE FOUND ---");
+                System.out.println("\n -- MESSAGE FOUND-- ");
                 System.out.println("Recipient: " + msg.getRecipient());
                 System.out.println("Message: " + msg.getMessageText());
                 return;
             }
         }
-
         System.out.println("Message ID not found.");
     }
     
-    // 4. Search by Recipient
-    public static void searchByRecipient(String recipient) {
-
-        System.out.println("\n--- MESSAGES FOR RECIPIENT ---");
-
-        for (QuickChat msg : MessageStorage.storedMessages) {
+        // Search by Recipient
+    public static String searchByRecipient(String recipient){  
+        String results = "";
+        
+        for (QuickChat msg : storedMessages) {
 
             if (msg.getRecipient().equals(recipient)) {
-
-                System.out.println(msg.getMessageText());
+              
+                results += msg.getMessageText() + "\n";
             }
         }
-    }
-    
-    // 5. Delete by Message Hash
-    public static void deleteByHash(String hash) {
-
-        for (int i = 0; i < MessageStorage.storedMessages.size(); i++) {
-
-            if (MessageStorage.storedMessages.get(i)
-                    .createMessageHash()
-                    .equals(hash)) {
-
-                MessageStorage.storedMessages.remove(i);
-
-                System.out.println("Message successfully deleted.");
-                return;
-            }
+        if (results.equals("")) {
+            return "No messages found.";
         }
+        return results.trim();
+    } 
 
-        System.out.println("Message not found.");
-    }
-    
-    // 6. Full Report
-    public static void displayReport() {
+    // Delete a message using a message hash
+    public static String deleteByHash(String hash) {
 
-        System.out.println("\n FULL MESSAGE REPORT ");
+    for (int i = 0; i < storedMessages.size(); i++) {
 
-        for (QuickChat msg : MessageStorage.storedMessages) {
+        if (storedMessages.get(i).createMessageHash().equals(hash)) {
 
-            System.out.println(msg.printMessages());
+            String deletedMessage =storedMessages.get(i).getMessageText();
+
+            storedMessages.remove(i);
+
+            return "The Message: \"" + deletedMessage + "\"is successfully deleted.";
         }
     }
+
+    return "Message not found.";
+}
+    
+    public static String displayReport() {
+    String report = "";
+
+    for (QuickChat msg : storedMessages) {
+
+        report +=
+            "Hash: " + msg.createMessageHash()
+            + "\nRecipient: " + msg.getRecipient()
+            + "\nMessage: " + msg.getMessageText()
+            + "\n\n";
+    }
+
+    return report;
+}
+    
+    public static String getRecentMessages() {
+
+    if (sentMessages.isEmpty()) {
+        return "No recently sent messages.";
+    }
+    String result = "";
+    for (QuickChat msg : sentMessages) {
+        result += msg.getMessageText() + "\n";
+    }
+    return result.trim();
+}
 }
 
