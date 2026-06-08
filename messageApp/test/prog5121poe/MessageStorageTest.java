@@ -69,4 +69,38 @@ public class MessageStorageTest {
         assertEquals(expected, MessageStorage.searchByRecipient("+27838884567"));
     }
 
+        @Test
+        public void testDeleteByHash() {
+
+        MessageStorage.storedMessages.clear();
+
+        QuickChat msg = new QuickChat("+27838884567","Where are you? You are late! I have asked you to be on time.");
+
+        MessageStorage.storedMessages.add(msg);
+
+        String hash = msg.createMessageHash();
+
+        String expected ="The Message: \"Where are you? You are late! I have asked you to be on time.\"is successfully deleted.";
+
+        assertEquals(expected, MessageStorage.deleteByHash(hash));
+
+        assertEquals(0, MessageStorage.storedMessages.size());
+        }
+        
+        @Test
+        public void testDisplayReport() {
+            MessageStorage.storedMessages.clear();
+            QuickChat msg1 =new QuickChat("+27834557896", "Did you get the cake?");
+
+            QuickChat msg2 = new QuickChat("+27838884567", "Where are you? You are late! I have asked you to be on time.");
+
+            MessageStorage.storedMessages.add(msg1);
+            MessageStorage.storedMessages.add(msg2);
+
+            String report = MessageStorage.displayReport();
+
+            assertTrue(report.contains("Did you get the cake?"));
+
+            assertTrue(report.contains("Where are you? You are late! I have asked you to be on time."));
+        }
 }
