@@ -151,9 +151,7 @@ public class MessageApp {
                 }                
                         // OPTION 2
                         else if (choice == 2) {
-                           // =========================
-                           // SHOW RECENTLY SENT MESSAGES
-                           // =========================
+                           // SHOW RECENTLY SENT MESSAGES                         
                             System.out.println("\n === RECENTLY SENT MESSAGES ===");
                             System.out.println(MessageStorage.getRecentMessages());
                         }
@@ -165,7 +163,7 @@ public class MessageApp {
                          System.out.println("Goodbye!");
                          }
                          
-                         //PART 3
+                          //PART 3
                           // OPTION 4 ( Stored messages)
                          else if(choice == 4){
                             
@@ -184,19 +182,15 @@ public class MessageApp {
                         if(reportChoice == 1){
                             MessageStorage.displaySenderAndRecipient();
                         }
-
                         else if(reportChoice == 2){
                             MessageStorage.displayLongestMessage();
                         }
-
                         else if(reportChoice == 3){
-
                             System.out.print("Enter Message ID: ");
                             String id = input.nextLine();
 
                             MessageStorage.searchByMessageID(id);
                         }
-
                         else if(reportChoice == 4){
 
                             System.out.print("Enter recipient: ");
@@ -204,19 +198,15 @@ public class MessageApp {
 
                             System.out.print(MessageStorage.searchByRecipient(rec));
                         }
-
                         else if(reportChoice == 5){
-
                             System.out.print("Enter message hash: ");
                             String hash = input.nextLine();
 
                             System.out.print(MessageStorage.deleteByHash(hash));
                         }
-
                         else if(reportChoice == 6){
                            System.out.print( MessageStorage.displayReport());
                         }
-
                         else {
                             System.out.println("Invalid report option.");
                         }

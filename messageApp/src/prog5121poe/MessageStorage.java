@@ -1,6 +1,6 @@
 
 package prog5121poe;
-
+ 
 import java.util.ArrayList;
 
 public class MessageStorage {  
@@ -16,7 +16,7 @@ public class MessageStorage {
     
     
     
-    // 1. Display the Sender And Recipient from the Stored messages
+    // 1. Display the Sender And Recipient from the Stored messages.
     public static void displaySenderAndRecipient(){
         
     for(QuickChat msg : MessageStorage.storedMessages){
@@ -27,7 +27,7 @@ public class MessageStorage {
     }
     
 }
-    //2. returns the longest stored message
+    //2. returns the longest stored message.
     public static QuickChat getLongestMessage() {
 
         if (storedMessages.isEmpty()) {
@@ -45,7 +45,7 @@ public class MessageStorage {
         return longest;
     }
     
- // Display the longest message
+ // Display the longest message.
     public static void displayLongestMessage() {
 
         if (MessageStorage.storedMessages.isEmpty()) {
@@ -68,7 +68,7 @@ public class MessageStorage {
     
     
 
-     // 3. Search by MessageID
+     // 3. Search by MessageID.
     public static void searchByMessageID(String id) {
 
         for (QuickChat msg : MessageStorage.storedMessages) {
@@ -83,7 +83,7 @@ public class MessageStorage {
         System.out.println("Message ID not found.");
     }
     
-        // Search by Recipient
+        // Search by Recipient.
     public static String searchByRecipient(String recipient){  
         String results = "";
         
@@ -100,7 +100,7 @@ public class MessageStorage {
         return results.trim();
     } 
 
-    // Delete a message using a message hash
+    // Delete a message using a message hash.
     public static String deleteByHash(String hash) {
 
     for (int i = 0; i < storedMessages.size(); i++) {
@@ -117,7 +117,7 @@ public class MessageStorage {
 
     return "Message not found.";
 }
-    
+    //Display the full report.   
     public static String displayReport() {
     String report = "";
 
@@ -132,7 +132,7 @@ public class MessageStorage {
 
     return report;
 }
-    
+    //Display the recently sent messages.
     public static String getRecentMessages() {
 
     if (sentMessages.isEmpty()) {
@@ -145,4 +145,3 @@ public class MessageStorage {
     return result.trim();
 }
 }
-

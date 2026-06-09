@@ -8,21 +8,21 @@ import static org.junit.Assert.*;
 
 public class MessageStorageTest {  
 
+        //This tests if the sent messages array is correctly populated.
         @Test
         public void testSentMessagesArrayPopulated() {
             MessageStorage.sentMessages.clear();
 
-            // Add test messages
             MessageStorage.sentMessages.add( new QuickChat("+27834557896", "Did you get the cake?") );
 
             MessageStorage.sentMessages.add(new QuickChat("+27838884567", "It is dinner time!"));
 
-            // Verify that the messages were stored correctly
             assertEquals( "Did you get the cake?",MessageStorage.sentMessages.get(0).getMessageText());
 
             assertEquals( "It is dinner time!",MessageStorage.sentMessages.get(1).getMessageText());
         }
     
+        //This tests if the DisplayLongestMessage method is  correct and the longest message is displayed.
         @Test
         public void testDisplayLongestMessage() {
 
@@ -40,6 +40,7 @@ public class MessageStorageTest {
         assertEquals( "Where are you? You are late! I have asked you to be on time.",longest.getMessageText());
     }
 
+        //This tests if the SearchMessageID method is correct and the correct message is displayed using the messageID.
         @Test
         public void testSearchMessageID() {
 
@@ -52,6 +53,7 @@ public class MessageStorageTest {
         assertEquals( "It is dinner time!", msg4.getMessageText() );
     }
         
+        //This tests if the SearchByRecipient method is correct and the correct message is displayed using the Recipients number.
         @Test  
          public void testSearchByRecipient() {
 
@@ -69,6 +71,7 @@ public class MessageStorageTest {
         assertEquals(expected, MessageStorage.searchByRecipient("+27838884567"));
     }
 
+         //This tests if the correct Message is deleted using the messageHASH.
         @Test
         public void testDeleteByHash() {
 
@@ -87,6 +90,7 @@ public class MessageStorageTest {
         assertEquals(0, MessageStorage.storedMessages.size());
         }
         
+        //This tests if the DisplayReport method is correct and all the stored information is Displayed correctly.
         @Test
         public void testDisplayReport() {
             MessageStorage.storedMessages.clear();
