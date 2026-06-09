@@ -180,34 +180,42 @@ public class MessageApp {
                         input.nextLine();
 
                         if(reportChoice == 1){
+                            //output the sender and recipient
                             MessageStorage.displaySenderAndRecipient();
                         }
                         else if(reportChoice == 2){
+                            //outputs the longests message stored
                             MessageStorage.displayLongestMessage();
                         }
                         else if(reportChoice == 3){
                             System.out.print("Enter Message ID: ");
                             String id = input.nextLine();
-
+                            
+                            //output the message and recipient number searched using the messageID
                             MessageStorage.searchByMessageID(id);
                         }
                         else if(reportChoice == 4){
 
                             System.out.print("Enter recipient: ");
                             String rec = input.nextLine();
-
+                            
+                            //output the message found using the recipients number
                             System.out.print(MessageStorage.searchByRecipient(rec));
                         }
                         else if(reportChoice == 5){
                             System.out.print("Enter message hash: ");
                             String hash = input.nextLine();
-
+                            
+                            //outputs the confirmation that the message is successfully deleted using the mssageHASH
                             System.out.print(MessageStorage.deleteByHash(hash));
                         }
                         else if(reportChoice == 6){
+                            
+                            //outputs the full report which shows the messageHASH ,recipients number and the message
                            System.out.print( MessageStorage.displayReport());
                         }
                         else {
+                            //outputs if the user does not choose an option between 1-6
                             System.out.println("Invalid report option.");
                         }
                         }
