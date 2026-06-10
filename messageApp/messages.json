@@ -1,6 +1,11 @@
-{
-  "messageID" : "1896455070",
-  "recipient" : "+27123456789",
-  "messageText" : "Hello",
-  "messageHash" : null
-}
+[ {
+  "messageID" : "7126319043",
+  "recipient" : "+27838884567",
+  "messageText" : "\"Where are you? You are late! I have asked you to be on time.\"",
+  "messageHash" : "71:2:\"Wheretime.\""
+}, {
+  "messageID" : "9303311515",
+  "recipient" : "+27838884567",
+  "messageText" : "\"ok ,i am leaving without you.\"",
+  "messageHash" : "93:5:\"okyou.\""
+} ]

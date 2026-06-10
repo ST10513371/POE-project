@@ -73,7 +73,7 @@ public class Login {
 
        
     //Login check
-    //checks if the username and password matches the one the user inputted 
+    //checks if the userna  me and password matches the one the user inputted 
     public boolean loginUser(String username, String password) {
         return username.equals(this.username) && password.equals(this.password); 
             

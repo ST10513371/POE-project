@@ -8,7 +8,7 @@ import static org.junit.Assert.*;
 public class LoginTest {
    
 @Test
-     public void testcorrectUsername() {
+    public void testcorrectUsername() {
     Login user = new Login("kyl_1", "Ch&&sec@ke99!", "+27838968976", "kyle", "Smith");
      boolean result = user.checkUsername(); //Tests if the username is correct
      assertTrue(result);                    //I used assert True/False becuase assertEquals only returns String methods not boolean
@@ -106,4 +106,4 @@ public void testcellPhoneNumberIncorrecctlyFormatted(){
     assertFalse(user.checkCellPhoneNumber());
 }
 }   
-        
+         

@@ -48,7 +48,7 @@ public class MessageApp {
         System.out.println(registrationMessage);
         
     
-        System.out.println("\n LOGIN");
+        System.out.println("\n ===LOGIN===");
         
         //promts the user for the username they used
         System.out.print("Enter username: ");
@@ -64,7 +64,7 @@ public class MessageApp {
     
         //POE PART 2
         // Welcome message
-        System.out.println("\nWelcome to QuickChat");
+        System.out.println("\n ===Welcome to QuickChat===");
 
         // only executes once the user has passed the loggin stage
         boolean loggedIn = true;
@@ -82,12 +82,11 @@ public class MessageApp {
             int count = 0;
 
             while (choice != 3) {
-                System.out.println("\nMENU");
+                System.out.println("\n ===MENU=== ");
                 System.out.println("1. Send Messages");
                 System.out.println("2. Show recently sent messages");
                 System.out.println("3. Quit");
                 System.out.println("4. Message reports"); // part 3
-                
                 
 
                 System.out.print("Choose option: "); 
