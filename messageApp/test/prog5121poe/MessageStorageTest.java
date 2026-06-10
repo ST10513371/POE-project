@@ -4,8 +4,6 @@ package prog5121poe;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-
-
 public class MessageStorageTest {  
 
         //This tests if the sent messages array is correctly populated.

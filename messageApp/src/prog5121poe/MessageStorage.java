@@ -14,8 +14,7 @@ public class MessageStorage {
 
     public static ArrayList<String> messageIDs = new ArrayList<>();
     
-    
-    
+       
     // 1. Display the Sender And Recipient from the Stored messages.
     public static void displaySenderAndRecipient(){
         
@@ -74,7 +73,7 @@ public class MessageStorage {
         for (QuickChat msg : MessageStorage.storedMessages) {
             if (msg.getMessageID().equals(id)) {
 
-                System.out.println("\n -- MESSAGE FOUND-- ");
+                System.out.println("\n == MESSAGE FOUND == ");
                 System.out.println("Recipient: " + msg.getRecipient());
                 System.out.println("Message: " + msg.getMessageText());
                 return;
@@ -114,7 +113,6 @@ public class MessageStorage {
             return "The Message: \"" + deletedMessage + "\"is successfully deleted.";
         }
     }
-
     return "Message not found.";
 }
     //Display the full report.   
@@ -129,19 +127,18 @@ public class MessageStorage {
             + "\nMessage: " + msg.getMessageText()
             + "\n\n";
     }
-
     return report;
 }
     //Display the recently sent messages.
     public static String getRecentMessages() {
 
-    if (sentMessages.isEmpty()) {
-        return "No recently sent messages.";
-    }
-    String result = "";
-    for (QuickChat msg : sentMessages) {
-        result += msg.getMessageText() + "\n";
-    }
+        if (sentMessages.isEmpty()) {
+            return "No recently sent messages.";
+        }
+        String result = "";
+        for (QuickChat msg : sentMessages) {
+            result += msg.getMessageText() + "\n";
+        }
     return result.trim();
 }
 }

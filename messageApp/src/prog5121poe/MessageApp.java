@@ -86,7 +86,7 @@ public class MessageApp {
                 System.out.println("1. Send Messages");
                 System.out.println("2. Show recently sent messages");
                 System.out.println("3. Quit");
-                System.out.println("4. Message reports");
+                System.out.println("4. Message reports"); // part 3
                 
                 
 
