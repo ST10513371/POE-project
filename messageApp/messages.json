@@ -1,11 +1,21 @@
 [ {
-  "messageID" : "7126319043",
-  "recipient" : "+27838884567",
-  "messageText" : "\"Where are you? You are late! I have asked you to be on time.\"",
-  "messageHash" : "71:2:\"Wheretime.\""
+  "messageID" : "6777132581",
+  "recipient" : "+27834557896",
+  "messageText" : "Did you get the cake",
+  "messageHash" : "67:1:Didcake"
 }, {
-  "messageID" : "9303311515",
+  "messageID" : "2349104574",
   "recipient" : "+27838884567",
-  "messageText" : "\"ok ,i am leaving without you.\"",
-  "messageHash" : "93:5:\"okyou.\""
+  "messageText" : "Where are you? You are late! i have asked you to be on time.",
+  "messageHash" : "23:2:Wheretime."
+}, {
+  "messageID" : "5280523823",
+  "recipient" : "+27791119870",
+  "messageText" : "I am at your gate",
+  "messageHash" : "52:3:Igate"
+}, {
+  "messageID" : "1530649991",
+  "recipient" : "+27123456789",
+  "messageText" : "ok , i am leaving without you",
+  "messageHash" : "15:4:okyou"
 } ]

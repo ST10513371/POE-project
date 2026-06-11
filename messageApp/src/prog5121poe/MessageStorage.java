@@ -104,7 +104,7 @@ public class MessageStorage {
 
     for (int i = 0; i < storedMessages.size(); i++) {
 
-        if (storedMessages.get(i).createMessageHash().equals(hash)) {
+        if (storedMessages.get(i).createMessageHash().equalsIgnoreCase(hash)) {
 
             String deletedMessage =storedMessages.get(i).getMessageText();
 
@@ -115,6 +115,7 @@ public class MessageStorage {
     }
     return "Message not found.";
 }
+    
     //Display the full report.   
     public static String displayReport() {
     String report = "";
